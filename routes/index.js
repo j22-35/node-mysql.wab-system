@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '[password]',
+  password: '[事前準備で設定したrootユーザのパスワード]',
   database: 'todo_app'
 });
 
