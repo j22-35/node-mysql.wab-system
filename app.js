@@ -6,6 +6,9 @@ const logger = require('morgan');
 
 const app = express();
 
+const signupRouter = require('./routes/signup');
+app.use('/signup', signupRouter);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
