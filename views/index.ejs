@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<% if(isAuth) { %>
   <form action="/" method="post">
     <label>タスクの追加</label>
     <input required type="text" name="add" placeholder="何をする?"/>
     <input type="submit" value="追加"/>
   </form>
   <ul>
-    <% if (Array.isArray(todos)) { %>
-      <% todos.forEach(function(todo) { %>
-        <li><span><%= todo.content %></span></li>
-      <% }); %>
+    <% for(let todo of todos){ %>
+      <li><span><%= todo.content %></span></li>
     <% } %>
   </ul>
-  </body>
+<% } else { %>
+  <h1>Welcome to the TodoApp</h1>
+  <a href="/signup">Sign up now!</a>
+<% } %>
+</body>
 </html>
