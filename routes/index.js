@@ -8,17 +8,18 @@ router.get('/', function (req, res, next) {
   knex("tasks")
     .select("*")
     .then(function (results) {
+      console.log(results);
       res.render('index', {
         title: 'ToDo App',
         todos: results,
-        isAuth: isAuth,
+        isAuth: true 
       });
     })
     .catch(function (err) {
       console.error(err);
       res.render('index', {
         title: 'ToDo App',
-        isAuth: isAuth,
+        isAuth: false 
       });
     });
 });
@@ -36,7 +37,6 @@ router.post('/', function (req, res, next) {
       console.error(err);
       res.render('index', {
         title: 'ToDo App',
-        isAuth: isAuth,
       });
     });
 });
